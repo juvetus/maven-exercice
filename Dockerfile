@@ -1,4 +1,6 @@
-FROM anapsix/alpine-java
-LABEL maintainer="juvettaj@gmail.com"
-COPY /target/simple-maven-project-with-tests-1.0-SNAPSHOT.jar /home/simple-maven-project-with-tests-1.0-SNAPSHOT.jar
-CMD ["java","-jar", "/home/simple-maven-project-with-tests-1.0-SNAPSHOT.jar"]
+FROM jenkins/jenkins:lts
+# if we want to install via apt
+USER root
+RUN apt-get update && apt-get install -y maven
+# drop back to the regular jenkins user - good practice
+USER jenkins
