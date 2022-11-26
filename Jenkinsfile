@@ -7,3 +7,4 @@ podTemplate(containers: [containerTemplate(name: 'maven', image: 'maven', comman
     junit '**/target/surefire-reports/TEST-*.xml'
   }
 }
+
